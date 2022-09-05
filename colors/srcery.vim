@@ -965,6 +965,8 @@ else
 endif
 
 hi! link clojureKeyword SrceryBlue
+hi! link clojureKeywordNs SrceryBrightBlue
+hi! link clojureSymbolNs SrceryBrightBlue
 hi! link clojureCond SrceryRed
 hi! link clojureSpecial SrceryRed
 hi! link clojureDefine SrceryRed
