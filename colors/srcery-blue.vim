@@ -40,7 +40,7 @@ if !exists('g:srcery_yellow')
 endif
 
 if !exists('g:srcery_blue')
-  let g:srcery_blue='#2C78BF'
+  let g:srcery_blue='#3b82ca'
 endif
 
 if !exists('g:srcery_magenta')
@@ -104,7 +104,7 @@ if !exists('g:srcery_xgray1')
 endif
 
 if !exists('g:srcery_xgray2')
-  let g:srcery_xgray2='#303030'
+  let g:srcery_xgray2='#202020'
 endif
 
 if !exists('g:srcery_xgray3')
