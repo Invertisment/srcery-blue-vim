@@ -1,4 +1,4 @@
-" 'srcery.vim' -- Vim color scheme.
+" 'srcery-blue.vim' -- Vim color scheme.
 " Maintainer:   Roosta (mail@roosta.sh)
 " Description:  Colorscheme that focus ease of use and clearly defined contrasting colors with a slightly earthy tone.
 " Original Source: https://github.com/morhetz/gruvbox
@@ -14,7 +14,7 @@ if v:version > 580
   endif
 endif
 
-let g:colors_name='srcery'
+let g:colors_name='srcery-blue'
 
 if !has('gui_running') && &t_Co != 256
   finish

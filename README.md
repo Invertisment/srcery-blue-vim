@@ -1,3 +1,8 @@
+
+The original colorscheme has removed Clojure from their config so this is going to be my version of that colorscheme.
+I hereby rename it into `srcery-blue`.
+
+
 ![logo](https://raw.githubusercontent.com/srcery-colors/srcery-assets/master/title.png)
 
 [![Check Them Vim Files](https://github.com/srcery-colors/srcery-vim/workflows/Check%20Them%20Vim%20Files/badge.svg)](https://github.com/srcery-colors/srcery-vim/actions)
