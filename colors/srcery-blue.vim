@@ -445,7 +445,7 @@ if v:version >= 703
 endif
 
 hi! link NonText SrceryXgray4
-hi! link SpecialKey SrceryBlue
+hi! link SpecialKey SrceryRed
 
 if g:srcery_inverse == 1
   call s:HL('Visual', s:none, s:none, s:inverse)
@@ -549,19 +549,19 @@ call s:HL('Error', s:bright_white, s:red, s:bold)
 call s:HL('String',  s:bright_green)
 
 " Generic statement
-hi! link Statement SrceryRed
+hi! link Statement SrceryBrightOrange
 " if, then, else, endif, swicth, etc.
-hi! link Conditional SrceryRed
+hi! link Conditional SrceryBrightOrange
 " for, do, while, etc.
-hi! link Repeat SrceryRed
+hi! link Repeat SrceryBrightOrange
 " case, default, etc.
-hi! link Label SrceryRed
+hi! link Label SrceryBrightOrange
 " try, catch, throw
-hi! link Exception SrceryRed
+hi! link Exception SrceryBrightRed
 " sizeof, "+", "*", etc.
 hi! link Operator Normal
 " Any other keyword
-hi! link Keyword SrceryRed
+hi! link Keyword SrceryBlue
 
 " Variable name
 hi! link Identifier SrceryCyan
@@ -864,6 +864,8 @@ highlight! link TSType SrceryWhite
 highlight! link TSDelimiter SrceryWhite
 highlight! link TSURI SrceryGreen
 highlight! link TSVariable SrceryBrightWhite
+highlight! link TSKeyword SrceryBlue
+highlight! link TSKeywordFunction SrceryBlue
 " }}}
 
 
@@ -964,12 +966,17 @@ else
   hi! link clojureParen SrceryWhite
 endif
 
-hi! link clojureKeyword SrceryBlue
-hi! link clojureKeywordNs SrceryBrightBlue
-hi! link clojureSymbolNs SrceryBrightBlue
+hi! link clojureMacro SrceryBrightRed
+
+hi! link clojureKeyword Keyword
+hi! link clojureNs SrceryGreen
+hi! link clojureKeywordNs clojureNs
+hi! link clojureKeywordNsSeparator SrceryWhite
+hi! link clojureSymbolNs clojureNs
+hi! link clojureSymbolNsSeparator SrceryWhite
 hi! link clojureCond SrceryRed
-hi! link clojureSpecial SrceryRed
-hi! link clojureDefine SrceryRed
+hi! link clojureSpecial SrceryGreen
+hi! link clojureDefine clojureMacro
 
 hi! link clojureFunc SrceryYellow
 hi! link clojureRepeat SrceryYellow
@@ -985,7 +992,6 @@ hi! link clojureRegexpQuantifier clojureRegexpCharClass
 
 hi! link clojureAnonArg SrceryYellow
 hi! link clojureVariable SrceryBlue
-hi! link clojureMacro SrceryOrangeBold
 
 hi! link clojureMeta SrceryYellow
 hi! link clojureDeref SrceryYellow
@@ -1160,7 +1166,8 @@ hi! link javaParen2 SrceryBrightWhite
 hi! link javaParen3 SrceryBrightWhite
 hi! link javaParen4 SrceryBrightWhite
 hi! link javaParen5 SrceryBrightWhite
-hi! link javaOperator SrceryYellow
+" new
+hi! link javaOperator SrceryMagenta
 
 hi! link javaVarArg SrceryGreen
 
@@ -1299,5 +1306,45 @@ hi! link shCommandSub SrceryBrightRed
 
 call s:HL('ExtraWhitespace', s:none, s:red)
 " }}}
+" LSP: {{{
+hi! link @lsp.type.class TSType
+hi! link @lsp.type.comment Comment
+"hi! link @lsp.type.decorator TSFunction
+hi! link @lsp.type.enum TSType
+" Java enum names in switch and declaration
+hi! link @lsp.type.enumMember String
+"hi! link @lsp.type.events TSLabel
+" clojure function name and function call
+hi! link @lsp.type.function SrceryYellow
+hi! link @lsp.type.interface TSType
+"" clojure keyword name
+hi! link @lsp.type.keyword clojureKeyword
+" clojure: defn, deftest
+hi! link @lsp.type.macro clojureMacro
+" clojure's java interop calls
+hi! link @lsp.type.method clojureFunc
+" Java's public static
+hi! link @lsp.type.modifier SrceryOrange
+" clojure: NS in the top of the file
+hi! link @lsp.type.namespace clojureNs
+hi! link @lsp.type.number Number
+hi! link @lsp.type.operator Operator
+" java's highlight call: highlight.smth()
+hi! link @lsp.type.parameter Identifier
+" name of java's prop accessor: this.highlight = a;
+hi! link @lsp.type.property Normal
+hi! link @lsp.type.regexp clojureRegexp
+hi! link @lsp.type.string String
+"hi! link @lsp.type.struct TSType
+"" clojure symbol & keyword ns
+hi! link @lsp.type.type clojureNs
+" generic param names in Java
+hi! link @lsp.type.typeParameter SrceryBrightCyan
+hi! link @lsp.type.variable Normal
+hi! link DiagnosticUnnecessary Comment
+" }}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker :
+
+hi! link @lsp.type.function SrceryYellow
+hi! link @lsp.type.namespace clojureNs
