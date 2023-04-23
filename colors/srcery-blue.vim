@@ -564,7 +564,7 @@ hi! link Operator Normal
 hi! link Keyword SrceryBlue
 
 " Variable name
-hi! link Identifier SrceryCyan
+hi! link Identifier None
 " Function name
 hi! link Function SrceryYellow
 
@@ -594,7 +594,7 @@ hi! link Float SrceryBrightMagenta
 if g:srcery_italic_types == 1 && g:srcery_italic == 1
   call s:HL('Type', s:bright_blue, s:none, s:italic)
 else
-  hi! link Type SrceryBrightBlue
+  hi! link Type SrceryGreen
 end
 " static, register, volatile, etc
 hi! link StorageClass SrceryOrange
@@ -860,7 +860,7 @@ highlight! link TSSymbol SrceryBlue
 highlight! link TSTag SrceryBlue
 highlight! link TSTagAttribute SrceryYellow
 highlight! link TSVariableBuiltin SrceryCyan
-highlight! link TSType SrceryWhite
+highlight! link TSType Normal
 highlight! link TSDelimiter SrceryWhite
 highlight! link TSURI SrceryGreen
 highlight! link TSVariable SrceryBrightWhite
@@ -969,16 +969,16 @@ endif
 hi! link clojureMacro SrceryBrightRed
 
 hi! link clojureKeyword Keyword
-hi! link clojureNs SrceryGreen
+hi! link clojureNs SrceryBrightBlue
 hi! link clojureKeywordNs clojureNs
 hi! link clojureKeywordNsSeparator SrceryWhite
 hi! link clojureSymbolNs clojureNs
 hi! link clojureSymbolNsSeparator SrceryWhite
 hi! link clojureCond SrceryRed
-hi! link clojureSpecial SrceryGreen
+hi! link clojureSpecial clojureMacro
 hi! link clojureDefine clojureMacro
 
-hi! link clojureFunc SrceryYellow
+hi! link clojureFunc Function
 hi! link clojureRepeat SrceryYellow
 hi! link clojureCharacter SrceryCyan
 hi! link clojureStringEscape SrceryCyan
@@ -1307,6 +1307,7 @@ hi! link shCommandSub SrceryBrightRed
 call s:HL('ExtraWhitespace', s:none, s:red)
 " }}}
 " LSP: {{{
+"https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens
 hi! link @lsp.type.class TSType
 hi! link @lsp.type.comment Comment
 "hi! link @lsp.type.decorator TSFunction
@@ -1315,7 +1316,8 @@ hi! link @lsp.type.enum TSType
 hi! link @lsp.type.enumMember String
 "hi! link @lsp.type.events TSLabel
 " clojure function name and function call
-hi! link @lsp.type.function SrceryYellow
+" all top-level vars end up being of that color
+hi! link @lsp.type.function clojureFunc
 hi! link @lsp.type.interface TSType
 "" clojure keyword name
 hi! link @lsp.type.keyword clojureKeyword
@@ -1340,11 +1342,8 @@ hi! link @lsp.type.string String
 hi! link @lsp.type.type clojureNs
 " generic param names in Java
 hi! link @lsp.type.typeParameter SrceryBrightCyan
-hi! link @lsp.type.variable Normal
+hi! link @lsp.type.variable Identifier
 hi! link DiagnosticUnnecessary Comment
 " }}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker :
-
-hi! link @lsp.type.function SrceryYellow
-hi! link @lsp.type.namespace clojureNs
